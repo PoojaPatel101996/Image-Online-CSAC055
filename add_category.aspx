@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="add_category.aspx.cs" Inherits="WebApplication9.add_category" %>
+﻿<%@ Page Language="C#" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="add_category.aspx.cs" Inherits="WebApplication9.add_category" %>
 
 <!DOCTYPE html>
 
@@ -179,7 +179,7 @@ body {
                     <td colspan="2"><h1 class="sign">Image Online</h1>
                         <h3 class="sign">Add Category</h3>
                     </td>
-                    <td><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" PostBackUrl="~/login.aspx" />
+                    <td><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" OnClick="Button1_Click" />
                         
                     </td>
                 </tr>
@@ -199,17 +199,19 @@ body {
             <asp:TextBox ID="cname" runat="server" class="un " type="text" align="center" placeholder="Category Name"></asp:TextBox>
              <br />
             <br />
-             <asp:Button ID="add_cat" runat="server"  Text="Add"  class="submit" align="center" PostBackUrl="~/add_category.aspx" />    
+             <asp:Button ID="add_cat" runat="server"  Text="Add" CssClass="submit"   align="center" OnClick="add_cat_Click"/>    
         </div>
         </td>
                 <td class="td"></td>
                 <td>
-
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="Category_Id" ForeColor="Black" DataSourceID="SqlDataSource1">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="Category_Id" DataSourceID="SqlDataSource1" ForeColor="Black" OnRowEditing="GridView1_RowEditing">
                         <Columns>
                             <asp:BoundField DataField="Category_Id" HeaderText="Category_Id" ReadOnly="True" SortExpression="Category_Id" />
                             <asp:BoundField DataField="Category_Name" HeaderText="Category_Name" SortExpression="Category_Name" />
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                            <asp:CommandField EditImageUrl="~/Images/edit.jpg" ShowEditButton="True" HeaderText="edit" ButtonType="Image" ControlStyle-Width="20px" />
+
+                            <asp:CommandField DeleteImageUrl="~/Images/delete.jpg"  ShowDeleteButton="True" HeaderText="delete" ButtonType="Image" ControlStyle-Width="20px" />
+
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -217,26 +219,23 @@ body {
                         <RowStyle BackColor="White" />
                         <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
                         <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedAscendingHeaderStyle BackColor="Gray" />
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ImageOnlineConnectionString2 %>" DeleteCommand="DELETE FROM [category] WHERE [Category_Id] = @original_Category_Id AND [Category_Name] = @original_Category_Name" InsertCommand="INSERT INTO [category] ([Category_Id], [Category_Name]) VALUES (@Category_Id, @Category_Name)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [category]" UpdateCommand="UPDATE [category] SET [Category_Name] = @Category_Name WHERE [Category_Id] = @original_Category_Id AND [Category_Name] = @original_Category_Name">
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ImageOnlineConnectionString %>" 
+                        DeleteCommand="DELETE FROM [category] WHERE [Category_Id] = @original_Category_Id AND [Category_Name] = @original_Category_Name" 
+                        OldValuesParameterFormatString="original_{0}"
+                        SelectCommand="SELECT * FROM [category]" >
+                        
                         <DeleteParameters>
                             <asp:Parameter Name="original_Category_Id" Type="String" />
                             <asp:Parameter Name="original_Category_Name" Type="String" />
                         </DeleteParameters>
-                        <InsertParameters>
-                            <asp:Parameter Name="Category_Id" Type="String" />
-                            <asp:Parameter Name="Category_Name" Type="String" />
-                        </InsertParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="Category_Name" Type="String" />
-                            <asp:Parameter Name="original_Category_Id" Type="String" />
-                            <asp:Parameter Name="original_Category_Name" Type="String" />
-                        </UpdateParameters>
+                        
+                        
                     </asp:SqlDataSource>
-                </td>
+                    </td>
             </tr>
     </table>
             </form>

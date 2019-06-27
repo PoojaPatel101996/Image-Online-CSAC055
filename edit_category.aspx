@@ -197,7 +197,7 @@ body {
                     <td colspan="2"><h1 class="sign">Image Online</h1>
                         <h3 class="sign">Edit Category</h3>
                     </td>
-                    <td><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" PostBackUrl="~/login.aspx" />
+                    <td><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" OnClick="Button1_Click" />
                         
                     </td>
                 </tr>
@@ -219,8 +219,8 @@ body {
             <br />
             <table>
                 <tr>
-                    <td><asp:Button ID="add_cat" runat="server"  Text="Update"  class="submit" align="center" PostBackUrl="~/category_list.aspx" /> </td>
-               <td><asp:Button ID="Button2" runat="server"  Text="Cancel"  class="submit1" align="center" PostBackUrl="~/category_list.aspx"/> </td>
+                    <td><asp:Button ID="add_cat" runat="server"  Text="Update"  class="submit" align="center" OnClick="add_cat_Click" /> </td>
+               <td><asp:Button ID="Button2" runat="server"  Text="Cancel"  class="submit1" align="center" OnClick="Button2_Click"/> </td>
                     </tr>
             </table>
              
@@ -235,7 +235,7 @@ body {
                         <Columns>
                             <asp:BoundField DataField="Category_Id" HeaderText="Category_Id" ReadOnly="True" SortExpression="Category_Id" />
                             <asp:BoundField DataField="Category_Name" HeaderText="Category_Name" SortExpression="Category_Name" />
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                            <asp:CommandField DeleteImageUrl="~/Images/delete.jpg" ShowDeleteButton="True" HeaderText="delete" ButtonType="Image" ControlStyle-Width="20px" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -247,20 +247,15 @@ body {
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ImageOnlineConnectionString2 %>" DeleteCommand="DELETE FROM [category] WHERE [Category_Id] = @original_Category_Id AND [Category_Name] = @original_Category_Name" InsertCommand="INSERT INTO [category] ([Category_Id], [Category_Name]) VALUES (@Category_Id, @Category_Name)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [category]" UpdateCommand="UPDATE [category] SET [Category_Name] = @Category_Name WHERE [Category_Id] = @original_Category_Id AND [Category_Name] = @original_Category_Name">
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ImageOnlineConnectionString2 %>"
+                        DeleteCommand="DELETE FROM [category] WHERE [Category_Id] = @original_Category_Id AND [Category_Name] = @original_Category_Name" 
+                        OldValuesParameterFormatString="original_{0}" 
+                        SelectCommand="SELECT * FROM [category]" >
                         <DeleteParameters>
                             <asp:Parameter Name="original_Category_Id" Type="String" />
                             <asp:Parameter Name="original_Category_Name" Type="String" />
                         </DeleteParameters>
-                        <InsertParameters>
-                            <asp:Parameter Name="Category_Id" Type="String" />
-                            <asp:Parameter Name="Category_Name" Type="String" />
-                        </InsertParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="Category_Name" Type="String" />
-                            <asp:Parameter Name="original_Category_Id" Type="String" />
-                            <asp:Parameter Name="original_Category_Name" Type="String" />
-                        </UpdateParameters>
+                        
                     </asp:SqlDataSource>
                 </td>
             </tr>
