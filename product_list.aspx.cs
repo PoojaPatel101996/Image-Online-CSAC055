@@ -20,26 +20,23 @@ namespace WebApplication9
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(cn);
-            con.Open();
-            if (con.State == System.Data.ConnectionState.Open)
-            {
-                string a = "select p.Product_Id,c.Category_Name,p.Product_Name,p.Sales_Price,p.Available_Quantity from category c, product p where c.Category_Id=p.Category_Id";
+            
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = a;
-                cmd.Connection = con;
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = cmd;
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                GridView1.DataSource = ds;
-                GridView1.DataBind();
-                con.Close();
+        }
 
-            }
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            Response.Redirect("edit_product.aspx");
+        }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
+        }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("add_product.aspx");
         }
     }
 }

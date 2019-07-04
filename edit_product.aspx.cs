@@ -17,24 +17,42 @@ namespace WebApplication9
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
+        }
+
+        protected void edit_prod_Click(object sender, EventArgs e)
+        {
+            
             SqlConnection con = new SqlConnection(cn);
             con.Open();
             if (con.State == System.Data.ConnectionState.Open)
             {
-                string a = "select p.Product_Id,c.Category_Name,p.Product_Name,p.Sales_Price,p.Available_Quantity from category c, product p where c.Category_Id=p.Category_Id";
+                
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = a;
-                cmd.Connection = con;
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = cmd;
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                GridView1.DataSource = ds;
+                string a = "update product set Product_Id='" + this.pid.Text + "',Product_Name='" + this.pname.Text + "',Category_Name='" + this.cname.Text + "',Sales_Price='" + this.sales.Text + "',Available_quantity='" + this.quantity.Text + "' where Product_Id='" + this.pid.Text + "';";
+
+
+
+                SqlCommand cmd = new SqlCommand(a, con);
+                cmd.ExecuteNonQuery();
                 GridView1.DataBind();
-                con.Close();
+
 
             }
+            Response.Redirect("add_product.aspx");
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("add_product.aspx");
         }
     }
 }
