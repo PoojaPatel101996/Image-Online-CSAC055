@@ -13,5 +13,15 @@ namespace WebApplication9
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
+        }
+
+        protected void adddata_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("inventorydetail.aspx");
+        }
     }
 }

@@ -19,6 +19,15 @@
       width:200px;
       
   }
+   #scroll  
+{
+border: 1px solid #C0C0C0;
+background-color: #F0F0F0;
+
+height: 150px; 
+overflow: scroll; 
+
+}
  .Menu ul
 {   
   
@@ -204,6 +213,7 @@ body {
         </td>
                 <td class="td"></td>
                 <td>
+                    <div id="scroll">
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="Category_Id" DataSourceID="SqlDataSource1" ForeColor="Black" OnRowEditing="GridView1_RowEditing">
                         <Columns>
                             <asp:BoundField DataField="Category_Id" HeaderText="Category_Id" ReadOnly="True" SortExpression="Category_Id" />
@@ -235,6 +245,7 @@ body {
                         
                         
                     </asp:SqlDataSource>
+                        </div>
                     </td>
             </tr>
     </table>

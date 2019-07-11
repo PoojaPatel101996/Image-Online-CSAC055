@@ -14,6 +14,19 @@ namespace WebApplication9
 
         }
 
-        
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            Response.Redirect("edit_category.aspx");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("add_category.aspx");
+        }
     }
 }

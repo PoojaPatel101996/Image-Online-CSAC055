@@ -7,26 +7,24 @@
 <head runat="server">
        <title>Home</title>
     <style>
-  
- .Menu ul
-{   
-  
-  padding:10px;
-  width: 15%;
-   height: 100%;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-  font-family: 'Comic Sans MS';
-  font-weight: bold;
-  font-size: 20px;
-  color:#ffffff;
-  padding: 15px 25px;
-  display: block;
-   border-radius: 6px;
-   
-}
+
+        .Menu ul {
+            padding: 10px;
+            width: 15%;
+            height: 100%;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            font-family: 'Comic Sans MS';
+            font-weight: bold;
+            font-size: 20px;
+            color: #ffffff;
+            padding: 15px 25px;
+            display: block;
+            border-radius: 6px;
+            C: \Users\pooja\source\repos\WebApplication9\WebApplication9\home.aspx
+        }
 
 .Menu ul li
 {
@@ -87,10 +85,10 @@ body {
   background-color: #4CAF50;
   border: none;
   color: white;
-  margin-left:300px;
+  
   padding: 15px 32px;
   text-align: center;
- margin-bottom:100px;
+ 
   display: inline-block;
   font-size: 18px;
    border-radius: 6px;
@@ -102,10 +100,10 @@ body {
    
 }
   
- }
+ 
  
  .td{
-      width:50px;
+      width:250px;
       
   }      
        
@@ -135,7 +133,7 @@ body {
                     <td colspan="2"><h1 class="sign">Image Online</h1>
                      <h3 class="sign">Home</h3>
                         </td>
-                    <td><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" PostBackUrl="~/login.aspx" />
+                    <td><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" OnClick="Button1_Click" />
                         
                     </td>
                 </tr>
@@ -144,20 +142,23 @@ body {
          </table>
          
          <table id="table1">
-             
              <tr>
+                 <td class="td"></td>
                  <td>
-         <asp:Button ID="addcat" runat="server" CssClass="button2" Text="Add Category" PostBackUrl="~/add_category.aspx" />
-                     </td>
-                 <td>
-                        <asp:Button ID="addpro" runat="server" cssClass="button2" Text="Add Product"  />
-                </td>
-                 </tr>
+                     <h2 style="color:#ffffff; font-size:25px;"> Welcome</h2>
+                 </td>
+             </tr>
+
+             <tr>
+                 <td class="td"></td>
+                     <td><h2 style="color:#ffffff; font-size:25px;">Add the data from the inventory using add data button</h2></td>
+            </tr>
           
              <tr>
                 <td class="td"></td>
-                 <td><h2 style="color:#ffffff; font-size:25px;">Inventory has no data - Please add Category or Product</h2></td>
-                
+                         <td>
+                             <asp:Button ID="adddata" runat="server" CssClass="button2" Text="Add Data" OnClick="adddata_Click" />
+                            </td>
              </tr>
 
            </table>  

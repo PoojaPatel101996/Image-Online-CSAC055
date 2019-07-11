@@ -1,7 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="product_list.aspx.cs" Inherits="WebApplication9.product_list" %>
-
-
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -191,7 +188,7 @@ body {
                         <h3 class="sign">Product List</h3>
                     </td>
                     <td colspan="2"><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" OnClick="Button1_Click" />
-                        <asp:Button ID="Button2" runat="server" Text="Add Product" CssClass="button1" PostBackUrl="~/add_product.aspx" OnClick="Button2_Click"  />
+                        <asp:Button ID="Button2" runat="server" Text="Add Product" CssClass="button1"  OnClick="Button2_Click"  />
                     </td>
                     
                         

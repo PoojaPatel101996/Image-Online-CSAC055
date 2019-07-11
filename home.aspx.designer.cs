@@ -31,21 +31,12 @@ namespace WebApplication9 {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// addcat control.
+        /// adddata control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addcat;
-        
-        /// <summary>
-        /// addpro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addpro;
+        protected global::System.Web.UI.WebControls.Button adddata;
     }
 }

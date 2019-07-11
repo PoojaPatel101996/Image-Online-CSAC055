@@ -158,6 +158,15 @@ body {
        {
            align:center;
        }
+        #scroll  
+{
+border: 1px solid #C0C0C0;
+background-color: #F0F0F0;
+
+height: 150px; 
+overflow: scroll; 
+
+}
     </style>
  
 </head>
@@ -180,8 +189,8 @@ body {
                     <td colspan="2" rowspan="2"><h1 class="sign">Image Online</h1>
                         <h3 class="sign">Category List</h3>
                     </td>
-                    <td colspan="2"><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" PostBackUrl="~/login.aspx" />
-                        <asp:Button ID="Button2" runat="server" Text="Add Category" CssClass="button1" PostBackUrl="~/add_category.aspx" />
+                    <td colspan="2"><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" OnClick="Button1_Click" />
+                        <asp:Button ID="Button2" runat="server" Text="Add Category" CssClass="button1" OnClick="Button2_Click" />
                     </td>
                     
                         
@@ -198,12 +207,14 @@ body {
         </td>
                 <td class="td"></td>
                 <td>
-
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="Category_Id" ForeColor="Black" DataSourceID="SqlDataSource1">
+                    <div id="scroll">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="Category_Id" ForeColor="Black" DataSourceID="SqlDataSource1" OnRowEditing="GridView1_RowEditing">
                         <Columns>
                             <asp:BoundField DataField="Category_Id" HeaderText="Category_Id" ReadOnly="True" SortExpression="Category_Id" />
                             <asp:BoundField DataField="Category_Name" HeaderText="Category_Name" SortExpression="Category_Name" />
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                                                    <asp:CommandField EditImageUrl="~/Images/edit.jpg" ShowEditButton="True" HeaderText="edit" ButtonType="Image" ControlStyle-Width="20px" />
+                            <asp:CommandField DeleteImageUrl="~/Images/delete.jpg"  ShowDeleteButton="True" HeaderText="delete" ButtonType="Image" ControlStyle-Width="20px" />
+
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -230,6 +241,7 @@ body {
                             <asp:Parameter Name="original_Category_Name" Type="String" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
+                        </div>
                 </td>
             </tr>
     </table>

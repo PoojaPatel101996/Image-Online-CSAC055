@@ -7,10 +7,12 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace WebApplication9
 {
     public partial class inventorydetail : System.Web.UI.Page
     {
+        
         public inventorydetail()
         {
 
@@ -19,11 +21,12 @@ namespace WebApplication9
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             SqlConnection con = new SqlConnection(cn);
             con.Open();
             if (con.State == System.Data.ConnectionState.Open)
             {
-                string a = "select c.Category_Name,p.Product_Name,p.Available_Quantity from category c, product p where c.Category_Id=p.Category_Id";
+                string a = "select c.Category_Name,p.Product_Name,p.Available_Quantity from category c, product p where c.Category_Name=p.Category_Name";
                 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = a;
@@ -49,20 +52,25 @@ namespace WebApplication9
 
                 SqlCommand cmd1 = new SqlCommand();
                 cmd1.CommandText = b;
-                cmd1.Connection = con;
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = cmd1;
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                GridView2.DataSource = ds;
+                cmd1.Connection = con1;
+                SqlDataAdapter da1 = new SqlDataAdapter();
+                da1.SelectCommand = cmd1;
+                DataSet ds1 = new DataSet();
+                da1.Fill(ds1);
+                
+                GridView2.DataSource = ds1;
                 GridView2.DataBind();
-                con.Close();
+                con1.Close();
 
             }
 
+            
 
         }
 
-       
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
+        }
     }
 }

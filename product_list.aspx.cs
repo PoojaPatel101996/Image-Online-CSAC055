@@ -33,6 +33,7 @@ namespace WebApplication9
         {
             Response.Redirect("login.aspx");
         }
+        //redirect to login page
 
         protected void Button2_Click(object sender, EventArgs e)
         {

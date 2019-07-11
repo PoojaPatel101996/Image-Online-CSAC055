@@ -27,6 +27,7 @@
    
 }
 
+
 .Menu ul li
 {
     background-color:#f1f1f1 ;
@@ -141,7 +142,7 @@ body {
             </td>
                     
                     <td><h1 class="sign">Image Online</h1></td>
-                    <td><asp:Button ID="Button1" runat="server" Text="Logout" PostBackUrl="~/login.aspx" CssClass="button1"/>
+                    <td><asp:Button ID="Button1" runat="server" Text="Logout" CssClass="button1" OnClick="Button1_Click"/>
                         
                     </td>
                 </tr>
@@ -162,6 +163,8 @@ body {
           
              <tr>
             <td class="auto-style1">
+                <div>
+                    
          <asp:GridView  class="grid1" ID="GridView2" runat="server" BackColor="#CCCCCC" BorderColor="#000000" BorderStyle="Solid" BorderWidth="5px" CellPadding="4" CellSpacing="2" ForeColor="Black">
              <FooterStyle BackColor="#CCCCCC" />
              <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -172,12 +175,17 @@ body {
              <SortedAscendingHeaderStyle BackColor="#808080" />
              <SortedDescendingCellStyle BackColor="#CAC9C9" />
              <SortedDescendingHeaderStyle BackColor="#383838" />
+            <EmptyDataTemplate>
+                To view category table with No. of products - please add product 
+            </EmptyDataTemplate>
             </asp:GridView>
+                </div>
+                    
+            </td>
+                 <td class="auto-style1">
 
-            </td><td class="auto-style1">
-
-    
-         <asp:GridView class="grid2" ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#000000" BorderStyle="solid" BorderWidth="5px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+    <div>
+         <asp:GridView class="grid2"  ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#000000" BorderStyle="solid" BorderWidth="5px" CellPadding="4" CellSpacing="2" ForeColor="Black">
              <FooterStyle BackColor="#CCCCCC" />
              <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
              <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
@@ -187,8 +195,11 @@ body {
              <SortedAscendingHeaderStyle BackColor="#808080" />
              <SortedDescendingCellStyle BackColor="#CAC9C9" />
              <SortedDescendingHeaderStyle BackColor="#383838" />
+              <EmptyDataTemplate>
+                The product table has no data - Please add products
+            </EmptyDataTemplate>
             </asp:GridView>
-         
+         </div>
              </td>
                  </tr>
 
