@@ -34,8 +34,13 @@ namespace WebApplication9
 
                 Response.Write("CONNECT SUCCESSFULLY");
             }
+
+            Response.Redirect("home.aspx");
         }
 
-        
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("signup.aspx");
+        }
     }
 }

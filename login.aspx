@@ -5,10 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
 
     <style>
     body {
@@ -144,27 +143,30 @@
      
             <br />
             <br />
-            <asp:TextBox ID="Id" runat="server" class="un " type="number" align="center" placeholder="Id"></asp:TextBox>
+            <asp:TextBox ID="Id" runat="server" class="un" type="number" align="center" placeholder="Id"></asp:TextBox>
             <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="grp1" runat="server" ErrorMessage="Id is required" ForeColor="Red" ControlToValidate="Id"></asp:RequiredFieldValidator>
             <br />
             <asp:TextBox ID="uname" runat="server" class="un " type="text" align="center" placeholder="Username"></asp:TextBox>
             <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="grp1" runat="server" ErrorMessage="Username is required" ForeColor="Red" ControlToValidate="uname"></asp:RequiredFieldValidator>
             <br />
             <asp:TextBox ID="pass" runat="server" class="pass" type="password" align="center" placeholder="Password"></asp:TextBox>
             <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="grp1" ErrorMessage="Password is required" ControlToValidate="pass" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" class="submit" align="center" PostBackUrl="~/home.aspx" />
-
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" ValidationGroup="grp1" Text="Login" class="submit" align="center"  />
+             
              <p class="forgot" align="center"><b>Don't have an Account?</b> </p>
 
 
             <br />
-            <asp:Button ID="Button2" runat="server"  Text="Sign up" class="submit1" align="center" PostBackUrl="~/signup.aspx"/>
-
+            <asp:Button ID="Button2" runat="server"  Text="Sign up" class="submit1" align="center" OnClick="Button2_Click" />
+        </form>
 
        
-        </form>
+       
         </div>
 </body>
 </html>

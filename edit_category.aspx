@@ -5,6 +5,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
         <title>Edit category</title>
     <style>
   .main {

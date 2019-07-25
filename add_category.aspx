@@ -5,6 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
         <title>Add category</title>
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+
     <style>
   .main {
         background-color: #FFFFFF;

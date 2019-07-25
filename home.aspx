@@ -6,6 +6,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
        <title>Home</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
     <style>
 
         .Menu ul {
@@ -23,7 +26,7 @@
             padding: 15px 25px;
             display: block;
             border-radius: 6px;
-            C: \Users\pooja\source\repos\WebApplication9\WebApplication9\home.aspx
+           
         }
 
 .Menu ul li
@@ -106,7 +109,7 @@ body {
       width:250px;
       
   }      
-       
+      
     </style>
  
 </head>

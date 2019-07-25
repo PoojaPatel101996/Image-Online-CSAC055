@@ -1,14 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="add_product.aspx.cs" Inherits="WebApplication9.add_product" %>
-
-
-
-
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
         <title>Add product</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+
     <style>
   .main {
         background-color: #FFFFFF;

@@ -3,6 +3,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
         <title>Product list</title>
     <style>
   .main {
@@ -213,7 +216,7 @@ body {
                             <asp:BoundField DataField="Category_Name" HeaderText="Category_Name" SortExpression="Category_Name" />
                             <asp:BoundField DataField="Sales_Price" HeaderText="Sales_Price" SortExpression="Sales_Price" />
                             <asp:BoundField DataField="Available_quantity" HeaderText="Available_quantity" SortExpression="Available_quantity" />
-                                                          <asp:CommandField EditImageUrl="~/Images/edit.jpg" ShowEditButton="True" HeaderText="edit" ButtonType="Image" ControlStyle-Width="20px" />
+                            <asp:CommandField EditImageUrl="~/Images/edit.jpg" ShowEditButton="True" HeaderText="edit" ButtonType="Image" ControlStyle-Width="20px" />
                             <asp:CommandField DeleteImageUrl="~/Images/delete.jpg"  ShowDeleteButton="True" HeaderText="delete" ButtonType="Image" ControlStyle-Width="20px" />
 
                         </Columns>

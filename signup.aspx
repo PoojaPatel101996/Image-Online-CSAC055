@@ -6,10 +6,9 @@
 <head runat="server">
     
     <title>Sign up</title>
-    <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
 
     <style>
     body {
@@ -26,7 +25,7 @@
     .main {
         background-color: #FFFFFF;
         width: 450px;
-        height: 950px;
+        height: 1050px;
         margin: 7em auto;
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -118,30 +117,36 @@
     </style>
 </head>
 <body>
+
    <div class="main">
     <h1><p class="sign" align="center">Image Online</p></h1>
     <center><img src="Images/oie_18172226eJY0iNwt.gif"  width="100" height="100"></center> 
       
         <form class="form1" runat="server">
+            
             <asp:TextBox ID="Id" runat="server" class="un " type="number" align="center" placeholder="Id"></asp:TextBox>
+            
             <br />
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Id" ErrorMessage="Id is required"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Id is required" ForeColor="Red" ControlToValidate="Id"></asp:RequiredFieldValidator>
             <br />
             <asp:TextBox ID="fname" runat="server" class="un " type="text" align="center" placeholder="Firstname"></asp:TextBox>
             <br />
+
             <br />
             <asp:TextBox ID="lname" runat="server" class="un " type="text" align="center" placeholder="Lastname"></asp:TextBox>
             <br />
             <br />
             <asp:TextBox ID="uname" runat="server" class="un " type="text" align="center" placeholder="Username"></asp:TextBox>
             <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Username is required" ForeColor="Red" ControlToValidate="uname"></asp:RequiredFieldValidator>
             <br />
             <asp:TextBox ID="pass" runat="server" class="pass " type="password" align="center" placeholder="Password"></asp:TextBox>
             <br />
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="pass" ErrorMessage="Password is required"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="^.*(?=.{8,})(?=.*[\d])(?=.*[\W]).*$" ErrorMessage="contains atleast 8 character,1 digit and 1 special character" ForeColor="Red" ControlToValidate="pass"></asp:RegularExpressionValidator>
             <br />
             <asp:TextBox ID="confirmpass" runat="server" class="pass " type="password" align="center" placeholder="Confirm password"></asp:TextBox>
-            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="pass" ControlToValidate="confirmpass" ErrorMessage="it must be same as password field."></asp:CompareValidator>
+            <br />
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Compare password must be same as password" ControlToCompare="pass" ControlToValidate="confirmpass" ForeColor="Red"></asp:CompareValidator>
             <br />
             <BotDetect:WebFormsCaptcha ID="CaptchaBox" runat="server" CssClass="cap"/>
             <br />
@@ -156,7 +161,7 @@
                         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
       
             <br />
-             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Signup"  class="submit" align="center" PostBackUrl="~/login.aspx" />
+             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Signup"  class="submit" align="center"  />
      
                     
 
